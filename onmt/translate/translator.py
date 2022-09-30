@@ -28,9 +28,13 @@ def build_translator(opt, report_score=True, logger=None, out_file=None):
     fields, model, model_opt = load_test_model(opt)
 
     scorer = onmt.translate.GNMTGlobalScorer.from_opt(opt)
-
+       
+    quantized_model = torch.quantization.quantize_dynamic(
+        model, {nn.LSTM, nn.Linear}, dtype=torch.qint8
+    )
+    
     translator = Translator.from_opt(
-        model,
+        quantized_model,
         fields,
         opt,
         model_opt,
