@@ -8,6 +8,7 @@ import numpy as np
 from itertools import count, zip_longest
 
 import torch
+from torch import nn
 
 import onmt.model_builder
 import onmt.inputters as inputters
