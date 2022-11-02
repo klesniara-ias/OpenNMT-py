@@ -38,11 +38,11 @@ def average_models(model_files, fp32=False):
 
 def main():
     parser = argparse.ArgumentParser(description="")
-    parser.add_argument("-models", "-m", nargs="+", required=True,
+    parser.add_argument("--models", "-m", nargs="+", required=True,
                         help="List of models")
-    parser.add_argument("-output", "-o", required=True,
+    parser.add_argument("--output", "-o", required=True,
                         help="Output file")
-    parser.add_argument("-fp32", "-f", action="store_true",
+    parser.add_argument("--fp32", "-f", action="store_true",
                         help="Cast params to float32")
     opt = parser.parse_args()
 
